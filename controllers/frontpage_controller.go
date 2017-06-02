@@ -7,6 +7,6 @@ type FrontpageController struct {
 }
 
 func (this *FrontpageController) Get() {
-	this.TplNames = "index.tpl"
+	this.TplName = "index.tpl"
 	this.Render()
 }

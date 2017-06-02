@@ -1,0 +1,63 @@
+.add-new-form {
+  margin: 5px 10px;
+  padding: 5px 0px;
+  width: 40%;
+}
+
+.add-new-form input,
+.add-new-form textarea,
+.add-new-form button
+{
+  margin-top: 5px;
+  padding: 5px 10px;
+  width: 100%;
+  border: 1px solid black;
+  display: block;
+}
+
+.add-new-form button {
+  background-color: white;
+  width: 20%;
+}
+
+.add-new-form button:hover {
+  background-color: #7f7;
+}
+
+.talk-list {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed black;
+}
+
+.talk-line {
+  border: 1px solid lightgray;
+  margin: 5px 10px;
+  padding: 5px 10px;
+  position: relative;
+}
+
+.talk-line .title {
+  font-weight: bold;
+}
+
+.talk-line .description {
+  margin-left: 1em;
+}
+
+.talk-line .owner {
+  position: absolute;
+  top: 0;
+  right: 1em;
+}
+
+.talk-line .owner.open {
+  color: blue;
+  cursor: pointer;
+}
+.talk-line .owner.open:hover:after {
+  content: " ! claim";
+  display: inline-block;
+  color: red;
+  padding-left: 0.5em;
+}

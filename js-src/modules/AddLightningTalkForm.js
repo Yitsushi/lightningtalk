@@ -1,17 +1,3 @@
-class LightningTalk extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return React.createElement(
-      "div",
-      null,
-      React.createElement(AddLightningTalkForm)
-    );
-  }
-}
-
 class AddLightningTalkForm extends React.Component {
   constructor(props) {
     super(props);
@@ -24,19 +10,21 @@ class AddLightningTalkForm extends React.Component {
   render() {
     return React.createElement(
       "form",
-      { onSubmit: this.handleSubmit, method: 'post' },
+      { onSubmit: this.handleSubmit, method: 'post', className: "add-new-form" },
       React.createElement(
         "input",
         {
           value: this.state.title,
-          onChange: this.handleTitleChange
+          onChange: this.handleTitleChange,
+          placeholder: "Title"
         }
       ),
       React.createElement(
         "textarea",
         {
           value: this.state.description,
-          onChange: this.handleDescriptionChange
+          onChange: this.handleDescriptionChange,
+          placeholder: "Description"
         }
       ),
       React.createElement("button", null, "Send")
@@ -46,17 +34,20 @@ class AddLightningTalkForm extends React.Component {
   handleTitleChange(e) {
     this.setState({ title: e.target.value });
   }
-  
+
   handleDescriptionChange(e) {
     this.setState({ description: e.target.value });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state.title);
-    console.log(this.state.description);
+    var data = {
+      Title: this.state.title,
+      Description: this.state.description
+    };
+    return ServerRequest("post", "/talk", data, function(d) {
+      this.setState({title: "", description: ""});
+      return this.props.updateTalks();
+    }.bind(this))
   }
 }
-
-ReactDOM.render(React.createElement(AddLightningTalkForm, {}), document.getElementById("rootnode"));
-
