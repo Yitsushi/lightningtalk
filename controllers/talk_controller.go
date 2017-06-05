@@ -28,7 +28,7 @@ func (this *TalkController) Find() {
 
 	this.Data["json"] = struct {
 		Test string
-		ID   int64
+		Id   int64
 	}{"test", id}
 	this.ServeJSON()
 }
@@ -44,7 +44,7 @@ func (this *TalkController) Post() {
 
 	err = json.Unmarshal(this.Ctx.Input.RequestBody, response.Talk)
 	if err == nil {
-		response.Talk.ID = 0
+		response.Talk.Id = 0
 		response.Talk.Presenter = nil
 
 		if response.Talk.Title != "" {
@@ -61,5 +61,10 @@ func (this *TalkController) Post() {
 
 	this.Data["json"] = response
 
+	this.ServeJSON()
+}
+
+func (this *TalkController) Update() {
+	this.Data["json"] = "Updated..."
 	this.ServeJSON()
 }

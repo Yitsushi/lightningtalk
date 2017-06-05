@@ -1,6 +1,6 @@
 class LightningTalkLine extends React.Component {
   claim() {
-    console.log(this.props.ID);
+    console.log(this.props.Id);
   }
 
   render() {
@@ -15,7 +15,8 @@ class LightningTalkLine extends React.Component {
       "div", {className: "talk-line"},
       React.createElement("div", {className: "title"}, this.props.Title),
       React.createElement("div", {className: "description"}, this.props.Description),
-      React.createElement("div", {onClick: this.claim.bind(this), className: ownerClass}, owner)
+      React.createElement("div", {onClick: this.claim.bind(this), className: ownerClass}, owner),
+      React.createElement(TalkToolbar, this.props)
     );
   }
 }

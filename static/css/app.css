@@ -33,16 +33,18 @@
 .talk-line {
   border: 1px solid lightgray;
   margin: 5px 10px;
-  padding: 5px 10px;
+  padding: 5px 0px;
   position: relative;
 }
 
 .talk-line .title {
   font-weight: bold;
+  padding: 0 10px;
 }
 
 .talk-line .description {
   margin-left: 1em;
+  padding: 0 10px;
 }
 
 .talk-line .owner {
@@ -60,4 +62,35 @@
   display: inline-block;
   color: red;
   padding-left: 0.5em;
+}
+
+.talk-line .toolbar {
+  margin: 5px;
+  padding: 5px 10px;
+  border-top: 1px dashed lightgray;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.talk-line .toolbar .label,
+.talk-line .toolbar .button {
+  display: inline-block;
+  padding: 3px 5px;
+}
+
+.talk-line .toolbar .label {
+  font-weight: bold;
+}
+.talk-line .toolbar .label:after {
+  content: ":";
+}
+
+.talk-line .toolbar .button {
+  border: 1px solid transparent;
+}
+
+.talk-line .toolbar .button:hover {
+  cursor: pointer;
+  background-color: #efe;
+  color: #00a;
+  border: 1px solid black;
 }

@@ -27,7 +27,7 @@ func init() {
 	)
 	orm.RegisterDataBase("default", "mysql", "root:123456@/lightningtalk?charset=utf8", 30)
 
-	orm.RunSyncdb("default", false, false)
+	orm.RunSyncdb("default", true, false)
 }
 
 func getAllFileContent(path string, extension string) []byte {
